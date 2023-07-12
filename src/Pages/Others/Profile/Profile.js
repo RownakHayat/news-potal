@@ -6,7 +6,7 @@ import { AuthContex } from '../../../Context/AuthProvider/AuthProvider';
 
 const Profile = () => {
     const {user} = useContext(AuthContex);
-    const [name, setname] = useState(user.displayName);
+    const [name, setName] = useState(user.displayName);
     const photoURLRef = useRef(user.photoURL)
     const handleSubmit = event =>{
         event.preventDefault();
@@ -14,7 +14,7 @@ const Profile = () => {
 
     }
     const handleNameChange = event =>{
-        setname(event.target.value)
+        setName(event.target.value)
     }
     return (
         <Form onSubmit={handleSubmit}>
