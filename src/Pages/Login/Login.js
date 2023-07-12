@@ -24,16 +24,16 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
             form.reset();
             setError(''); 
-            
-            if(user.emailVerifyed){
-              navigate(from, {replace: true})
+           
+            if(user.emailVerified){
+              navigate(from, {replace: true});
               
             }
             else{
-              toast.error('Your email is not verified,  Please Verify')
+              toast.error('Your email is not verified, Please Verify')
             }
         })
         .catch(error => {

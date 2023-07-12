@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUser, verifiyEamil } = useContext(AuthContex);
+    const { createUser, updateUser,  verifyEmail } = useContext(AuthContex);
     
 
 
@@ -29,7 +29,7 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUser(name, photoURL);
-                handleEmailVerification()
+                handleEmailVerification();
                 toast.success('Please verify your email')
                 
             })
@@ -45,15 +45,13 @@ const Register = () => {
 
         }
         updateUser(profile)
-        .then(() =>{})
+        .then(() => { })
         .catch(error => console.error(error));
 
     }
-    const handleEmailVerification =()=>{
-        verifiyEamil()
-        .then(() =>{
-
-        })
+    const handleEmailVerification = () =>{
+        verifyEmail()
+        .then(() =>{})
         .catch (error => console.error(error));
     }
     const handleAccepted = event =>{

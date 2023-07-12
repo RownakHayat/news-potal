@@ -11,6 +11,7 @@ import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContex);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})

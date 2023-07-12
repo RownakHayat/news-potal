@@ -30,30 +30,30 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, profile);
 
     }
-    const verifiyEamil = ()=>{
-        return sendEmailVerification(auth.currentUser)
+    const  verifyEmail = () =>{
+        return sendEmailVerification(auth.currentUser);
     }
     const logOut = () => {
         setLoading(true)
         signOut(auth)
     }
     useEffect(() => {
-        const unSubcribe = onAuthStateChanged(auth, (currentUser) => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 
             if(currentUser === null || currentUser.emailVerified){
-                setUser(currentUser)
+                setUser(currentUser);
             }
             
             setLoading(false);
         })
         return () => {
-            unSubcribe();
+            unSubscribe();
 
         }
     }, [])
 
 
-    const authInfo = { user, providerLogin, logOut, createUser, signIn, loading, updateUser, verifiyEamil, setLoading };
+    const authInfo = { user, providerLogin, logOut, createUser, signIn, loading, updateUser,  verifyEmail, setLoading };
 
     return (
         <AuthContex.Provider value={authInfo}>
